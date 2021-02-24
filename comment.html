@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js'></script>
+        <!-- <script src="../../echarts/dist/echarts.js"></script> -->
+        <script src='../dist/echarts-wordcloud.js'></script>
+    </head>
+    <body>
+        <style>
+            html, body, #main {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+        </style>
+        <div id='main'></div>
+        <script>
+            var chart = echarts.init(document.getElementById('main'));
+
+            var option = {
+                tooltip: {},
+                series: [ {
+                    type: 'wordCloud',
+                    gridSize: 2,
+                    sizeRange: [12, 50],
+                    rotationRange: [-90, 90],
+                    shape: 'pentagon',
+                    width: 600,
+                    height: 400,
+                    drawOutOfBound: true,
+                    textStyle: {
+                        color: function () {
+                            return 'rgb(' + [
+                                Math.round(Math.random() * 160),
+                                Math.round(Math.random() * 160),
+                                Math.round(Math.random() * 160)
+                            ].join(',') + ')';
+                        }
+                    },
+                    emphasis: {
+                        textStyle: {
+                            shadowBlur: 10,
+                            shadowColor: '#333'
+                        }
+                    },
+                    data: [
+                        {
+                            value: 10000,
+                            textStyle: {
+                                color: 'black'
+                            },
+                            emphasis: {
+                                textStyle: {
+                                    color: 'red'
+                                }
+                            }
+                        },
+                        {"name": "致敬", "value": 985}, {"name": "加油", "value": 791}, {"name": "我们", "value": 770}, {"name": "中国", "value": 735}, {"name": "武汉", "value": 597}, {"name": "疫情", "value": 570}, {"name": "英雄", "value": 553}, {"name": "你们", "value": 511}, {"name": "真的", "value": 502}, {"name": "感谢", "value": 470}, {"name": "感动", "value": 456}, {"name": "不敢", "value": 428}, {"name": "这个", "value": 413}, {"name": "没有", "value": 397}, {"name": "所有", "value": 388}, {"name": "电视剧", "value": 387}, {"name": "一起", "value": 384}, {"name": "行者", "value": 373}, {"name": "医护人员", "value": 357}, {"name": "医生", "value": 333}, {"name": "导演", "value": 333}, {"name": "最美", "value": 318}, {"name": "一个", "value": 316}, {"name": "眼泪", "value": 292}, {"name": "演员", "value": 291}, {"name": "抗疫", "value": 289}, {"name": "这部", "value": 288}, {"name": "真实", "value": 250}, {"name": "伟大", "value": 246}, {"name": "看到", "value": 245}, {"name": "他们", "value": 235}, {"name": "自己", "value": 234}, {"name": "时候", "value": 234}, {"name": "一直", "value": 225}, {"name": "知道", "value": 224}, {"name": "人民", "value": 223}, {"name": "一线", "value": 219}, {"name": "这么", "value": 217}, {"name": "终于", "value": 217}, {"name": "祖国", "value": 205}, {"name": "就是", "value": 201}, {"name": "看着", "value": 195}, {"name": "希望", "value": 193}, {"name": "还是", "value": 189}, {"name": "什么", "value": 182}, {"name": "点赞", "value": 180}, {"name": "现在", "value": 179}, {"name": "大家", "value": 178}, {"name": "辛苦", "value": 176}, {"name": "好看", "value": 174}, {"name": "怎么", "value": 164}, {"name": "开始", "value": 161}, {"name": "付出", "value": 159}, {"name": "白衣天使", "value": 153}, {"name": "因为", "value": 151}, {"name": "院长", "value": 151}, {"name": "张嘉译", "value": 151}, {"name": "那些", "value": 144}, {"name": "感觉", "value": 143}, {"name": "不是", "value": 142}, {"name": "感人", "value": 141}, {"name": "一部", "value": 140}, {"name": "护士", "value": 138}, {"name": "当时", "value": 137}, {"name": "一位", "value": 136}, {"name": "应该", "value": 136}, {"name": "国家", "value": 135}, {"name": "湖北", "value": 134}, {"name": "第一集", "value": 129}, {"name": "医院", "value": 125}, {"name": "电视", "value": 125}, {"name": "为什么", "value": 125}, {"name": "一样", "value": 122}, {"name": "那个", "value": 122}, {"name": "但是", "value": 121}, {"name": "第一", "value": 121}, {"name": "可以", "value": 120}, {"name": "一集", "value": 117}, {"name": "不能", "value": 112}, {"name": "明星", "value": 110}, {"name": "那么", "value": 109}, {"name": "生命", "value": 109}, {"name": "这些", "value": 108}, {"name": "作为", "value": 105}, {"name": "等到", "value": 105}, {"name": "12", "value": 103}, {"name": "觉得", "value": 101}, {"name": "流泪", "value": 101}, {"name": "谢谢", "value": 100}, {"name": "期间", "value": 100}, {"name": "感恩", "value": 100}, {"name": "工作者", "value": 99}, {"name": "害怕", "value": 98}, {"name": "心里", "value": 96}, {"name": "喜欢", "value": 96}, {"name": "来看", "value": 95}, {"name": "不要", "value": 94}, {"name": "谢谢你们", "value": 93}, {"name": "这样", "value": 92}, {"name": "还有", "value": 90}
+                    ]
+                } ]
+            };
+
+            chart.setOption(option);
+
+            window.onresize = chart.resize;
+        </script>
+    </body>
+</html>
